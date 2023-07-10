@@ -1,11 +1,11 @@
-package libs
+package searching
 
 import (
 	"fmt"
 )
 
 // Big(O) = O(n)
-func Lsearch(arr []int, x int) {
+func LinearSearch(arr []int, x int) {
 	flag := false
 	for i := 0; i < len(arr); i++ {
 		if arr[i] == x {
@@ -14,7 +14,7 @@ func Lsearch(arr []int, x int) {
 			break
 		}
 	}
-	if flag == false {
+	if !flag {
 		fmt.Println("Not found")
 	}
 }

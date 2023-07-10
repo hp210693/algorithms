@@ -1,9 +1,9 @@
-package libs
+package searching
 
 import "fmt"
 
 // Big(O) = log(n)
-func Bsearch(arr []int, x int) {
+func BSearch(arr []int, x int) {
 	flag := false
 	left, mid := 0, 0
 	right := len(arr) - 1
@@ -21,23 +21,24 @@ func Bsearch(arr []int, x int) {
 		}
 	}
 
-	if flag == false {
+	if !flag {
 		fmt.Println("Not found")
 	}
 }
 
 // Recursion
 // Big(O) = log(n)
-func BRsearch(arr []int, x, left, right int) int {
+func BRSearch(arr []int, x, left, right int) int {
+
 	for left <= right {
 		mid := (left + right) / 2
 		if arr[mid] == x {
 			return mid
 		}
 		if arr[mid] > x {
-			return BRsearch(arr, x, left, mid-1)
+			return BRSearch(arr, x, left, mid-1)
 		} else {
-			return BRsearch(arr, x, mid+1, right)
+			return BRSearch(arr, x, mid+1, right)
 		}
 	}
 	return -1
